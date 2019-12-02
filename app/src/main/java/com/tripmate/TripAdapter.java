@@ -1,33 +1,17 @@
 package com.tripmate;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FieldValue;
-import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Picasso;
-import com.tripmate.DashBoardActivity;
-import com.tripmate.R;
-import com.tripmate.Trip;
-import com.tripmate.TripActivity;
 
 
 import androidx.annotation.NonNull;
@@ -35,7 +19,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripVIewHolder> {
     public  static ArrayList<Trip> tripList;
@@ -53,7 +36,7 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripVIewHolder
     @Override
     public TripVIewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.trip_list_item_row,parent,false);
+                .inflate(R.layout.tripItem,parent,false);
         TripVIewHolder tripVIewHolder = new TripVIewHolder(view);
 
         return tripVIewHolder;

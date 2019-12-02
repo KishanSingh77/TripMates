@@ -10,8 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FieldValue;
 import com.squareup.picasso.Picasso;
 
 
@@ -28,7 +26,7 @@ public class AddUserAdapter extends RecyclerView.Adapter<AddUserAdapter.UserView
     @Override
     public AddUserAdapter.UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.user_list_item,parent,false);
+                .inflate(R.layout.userItem,parent,false);
         AddUserAdapter.UserViewHolder userViewHolder = new AddUserAdapter.UserViewHolder(view);
         return userViewHolder;
     }

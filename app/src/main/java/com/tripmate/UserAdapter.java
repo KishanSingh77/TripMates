@@ -28,7 +28,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         addedUsers = new ArrayList<>();
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.user_list_item,parent,false);
+                .inflate(R.layout.userItem,parent,false);
         UserViewHolder userViewHolder = new UserViewHolder(view);
         return userViewHolder;
     }

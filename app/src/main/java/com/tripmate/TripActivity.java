@@ -253,7 +253,7 @@ public class TripActivity extends AppCompatActivity {
         ActionBar action = getSupportActionBar();
         action.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         action.setDisplayShowCustomEnabled(true);
-        action.setCustomView(R.layout.custom_action_bar);
+        action.setCustomView(R.layout.header);
         ImageView imageButton= (ImageView)action.getCustomView().findViewById(R.id.btn_logout);
         TextView pageTitle = action.getCustomView().findViewById(R.id.action_bar_title);
         pageTitle.setText("DASHBOARD");

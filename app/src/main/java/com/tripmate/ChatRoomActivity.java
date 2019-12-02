@@ -106,7 +106,7 @@ public class ChatRoomActivity extends AppCompatActivity {
     private void initializeList(){
         listOfMessages = (ListView) findViewById(R.id.cr_rv_messages_list);
         FirebaseListOptions<ChatRoom> options = new FirebaseListOptions.Builder<ChatRoom>()
-                .setLayout(R.layout.message_list_item_row)//Note: The guide doesn't mention this method, without it an exception is thrown that the layout has to be set.
+                .setLayout(R.layout.messageItem)//Note: The guide doesn't mention this method, without it an exception is thrown that the layout has to be set.
                 .setLifecycleOwner(this)
                 .setQuery(database.getReference(tripDB), ChatRoom.class)
                 .build();
@@ -251,7 +251,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         ActionBar action = getSupportActionBar();
         action.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         action.setDisplayShowCustomEnabled(true);
-        action.setCustomView(R.layout.custom_action_bar);
+        action.setCustomView(R.layout.header);
         ImageView imageButton= (ImageView)action.getCustomView().findViewById(R.id.btn_logout);
         TextView pageTitle = action.getCustomView().findViewById(R.id.action_bar_title);
         pageTitle.setText("DASHBOARD");

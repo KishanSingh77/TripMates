@@ -15,14 +15,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import com.squareup.picasso.Picasso;
-
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -81,7 +78,7 @@ public class DashBoardActivity extends AppCompatActivity {
         ActionBar action = getSupportActionBar();
         action.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         action.setDisplayShowCustomEnabled(true);
-        action.setCustomView(R.layout.custom_action_bar);
+        action.setCustomView(R.layout.header);
         ImageView imageButton= (ImageView)action.getCustomView().findViewById(R.id.btn_logout);
         TextView pageTitle = action.getCustomView().findViewById(R.id.action_bar_title);
         pageTitle.setText("Dashboard");
