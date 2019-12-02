@@ -89,7 +89,7 @@ public class SignIn extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<AuthResult> task) {
                                             if (task.isSuccessful()) {
-                                                Intent intent = new Intent(SignIn.this, UserActivity.class);
+                                                Intent intent = new Intent(SignIn.this, DashBoardActivity.class);
                                                 startActivity(intent);
                                                 loader.dismiss();
                                                 finish();
