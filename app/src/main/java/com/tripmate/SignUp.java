@@ -1,17 +1,21 @@
 package com.tripmate;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,7 +28,11 @@ public class SignUp extends AppCompatActivity {
     private Button signupButton;
     private FirebaseAuth mAuth;
     private ProgressDialog loader;
-    EditText username, password, confirmPassword;
+    EditText username, password, confirmPassword,firstName,lastName;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+    ImageView image;
+    Bitmap bitmapUpload = null;
+    boolean imageCaptured = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +44,16 @@ public class SignUp extends AppCompatActivity {
         confirmPassword = findViewById(R.id.sa_et_confirmPassword);
         mAuth = FirebaseAuth.getInstance();
         signupButton = findViewById(R.id.sa_btn_signUp);
+        image=findViewById(R.id.imageView2);
+        firstName=findViewById(R.id.editTextFirstName);
+        lastName=findViewById(R.id.editTextLastName);
 
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                takePhotoIntent();
+            }
+        });
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,7 +61,9 @@ public class SignUp extends AppCompatActivity {
                     String userName = username.getText().toString();
                     String pass = password.getText().toString();
                     String confirmPass = confirmPassword.getText().toString();
-                    if (validateFormData(userName, pass, confirmPass)) {
+                    String first_name=firstName.getText().toString();
+                    String last_name=lastName.getText().toString();
+                    if (validateFormData(userName, pass, confirmPass,first_name,last_name)) {
                         if (isConnected()) {
                             loader = ProgressDialog.show(SignUp.this, "", "Signing in...", true);
                             mAuth.createUserWithEmailAndPassword(userName, pass)
@@ -53,7 +72,7 @@ public class SignUp extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<AuthResult> task) {
                                             if (task.isSuccessful()) {
                                                 Toast.makeText(SignUp.this, "User created successfully", Toast.LENGTH_SHORT).show();
-                                                Intent intent = new Intent(SignUp.this, UserProfile.class);
+                                                Intent intent = new Intent(SignUp.this, DashBoardActivity.class);
                                                 loader.dismiss();
                                                 startActivity(intent);
                                                 finish();
@@ -89,6 +108,26 @@ public class SignUp extends AppCompatActivity {
 
     }
 
+    private void takePhotoIntent() {
+        Intent photo = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (photo.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(photo, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            image.setImageBitmap(imageBitmap);
+            bitmapUpload = imageBitmap;
+            imageCaptured = true;
+        }
+
+    }
+
     public boolean isConnected() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
@@ -99,8 +138,12 @@ public class SignUp extends AppCompatActivity {
         return true;
     }
 
-    public boolean validateFormData(String username, String password, String confirmPassword) {
-        if (username.equals(null) || username.equals("") || password.equals(null) || password.equals("")) {
+    public boolean validateFormData(String username, String password, String confirmPassword,String first_name,String last_name) {
+        if (first_name.equals(null) || first_name.equals("") || last_name.equals(null) || last_name.equals("")) {
+            Toast.makeText(SignUp.this, "Form fields cannot be blank", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (username.equals(null) || username.equals("") || password.equals(null) || password.equals("")) {
             Toast.makeText(SignUp.this, "Form fields cannot be blank", Toast.LENGTH_SHORT).show();
             return false;
         }

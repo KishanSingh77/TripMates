@@ -11,11 +11,12 @@
         android:id="@+id/sa_btn_signUp"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
 
+        android:layout_marginBottom="10dp"
         android:text="@string/btn_singUp_text"
-        android:textAllCaps="false"
 
+        android:textAllCaps="false"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
