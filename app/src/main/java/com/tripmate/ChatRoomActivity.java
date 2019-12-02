@@ -266,22 +266,22 @@ public class ChatRoomActivity extends AppCompatActivity {
 
             }
         });
-        ImageView profileImage = action.getCustomView().findViewById(R.id.iv_profile_photo);
-        Uri uri = FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl();
-        if(uri == null){
-            profileImage.setImageDrawable(getDrawable(R.drawable.default_avatar_icon));
-        }
-        else{
-            Picasso.get().load(uri).into(profileImage);
-        }
-        ImageView profileContainer = action.getCustomView().findViewById(R.id.iv_profile_photo);
-        profileContainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ChatRoomActivity.this, UserActivity.class);
-                startActivity(intent);
-            }
-        });
+//        ImageView profileImage = action.getCustomView().findViewById(R.id.iv_profile_photo);
+//        Uri uri = FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl();
+//        if(uri == null){
+//            profileImage.setImageDrawable(getDrawable(R.drawable.default_avatar_icon));
+//        }
+//        else{
+//            Picasso.get().load(uri).into(profileImage);
+//        }
+//        ImageView profileContainer = action.getCustomView().findViewById(R.id.iv_profile_photo);
+//        profileContainer.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(ChatRoomActivity.this, UserActivity.class);
+//                startActivity(intent);
+//            }
+//        });
         Toolbar toolbar=(Toolbar)action.getCustomView().getParent();
         toolbar.setContentInsetsAbsolute(0, 0);
         toolbar.getContentInsetEnd();

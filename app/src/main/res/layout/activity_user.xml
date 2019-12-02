@@ -13,16 +13,18 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="76dp"
 
+        android:layout_marginBottom="70dp"
         android:text="@string/btn_submit_text"
         android:textAllCaps="false"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <EditText
         android:id="@+id/add_edit_view_tv_fName_value"
@@ -57,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/add_edit_view_tv_fName_value" />
 
     <RadioGroup
-        android:id="@+id/add_edit_view_radioGroup"
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
