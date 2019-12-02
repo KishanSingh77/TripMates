@@ -39,11 +39,11 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        username = findViewById(R.id.sa_et_username);
-        password = findViewById(R.id.sa_et_password);
-        confirmPassword = findViewById(R.id.sa_et_confirmPassword);
+        username = findViewById(R.id.et_username);
+        password = findViewById(R.id.et_password);
+        confirmPassword = findViewById(R.id.confirm_Password);
         mAuth = FirebaseAuth.getInstance();
-        signupButton = findViewById(R.id.sa_btn_signUp);
+        signupButton = findViewById(R.id.btn_signUp);
         image=findViewById(R.id.imageView2);
         firstName=findViewById(R.id.editTextFirstName);
         lastName=findViewById(R.id.editTextLastName);
@@ -65,13 +65,13 @@ public class SignUp extends AppCompatActivity {
                     String last_name=lastName.getText().toString();
                     if (validateFormData(userName, pass, confirmPass,first_name,last_name)) {
                         if (isConnected()) {
-                            loader = ProgressDialog.show(SignUp.this, "", "Signing in...", true);
+                            loader = ProgressDialog.show(SignUp.this, "", "Logging IN", true);
                             mAuth.createUserWithEmailAndPassword(userName, pass)
                                     .addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
                                         @Override
                                         public void onComplete(@NonNull Task<AuthResult> task) {
                                             if (task.isSuccessful()) {
-                                                Toast.makeText(SignUp.this, "User created successfully", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(SignUp.this, "User created YO", Toast.LENGTH_SHORT).show();
                                                 Intent intent = new Intent(SignUp.this, DashBoardActivity.class);
                                                 loader.dismiss();
                                                 startActivity(intent);
@@ -80,16 +80,16 @@ public class SignUp extends AppCompatActivity {
                                             } else {
                                                 loader.dismiss();
                                                 Toast.makeText(SignUp.this, "Sign up process failed", Toast.LENGTH_SHORT).show();
-                                                Log.d("demo", "createUserWithEmail:failure", task.getException());
+                                                Log.d("demo", " failure", task.getException());
                                             }
                                         }
                                     });
                         } else {
-                            Toast.makeText(SignUp.this, "No internet connection", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUp.this, "XXXXXXXXXXXX no connection  XXXXXX", Toast.LENGTH_SHORT).show();
                         }
                     }
                 } catch (Exception ex) {
-                    Toast.makeText(SignUp.this, "Something went wrong. Please try again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUp.this, "failture", Toast.LENGTH_SHORT).show();
                 }
             }
 

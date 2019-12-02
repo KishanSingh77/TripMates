@@ -8,7 +8,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fl_cl_profile_view"
+        android:id="@+id/constraint_layout_profile_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -118,7 +118,7 @@
             app:layout_constraintTop_toBottomOf="@+id/add_edit_view_tv_lName_value" />
 
         <RadioGroup
-            android:id="@+id/add_edit_view_rg"
+            android:id="@+id/add_edit_view_radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -161,7 +161,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_edit_view_rg"
+            app:layout_constraintTop_toBottomOf="@+id/add_edit_view_radioGroup"
             app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,8 +13,6 @@ import android.view.View;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -27,7 +25,6 @@ public class AddUsers extends AppCompatActivity {
     public static RecyclerView.Adapter mAdapter;
     ProgressDialog pb;
     ArrayList<UserProfile> userList = new ArrayList<>();
-    // ArrayList<UserProfile> addedUsers = new ArrayList<>();
 
     int flag = 0;
     public static String tripID = null;
@@ -41,7 +38,7 @@ public class AddUsers extends AppCompatActivity {
         initialize();
 
 
-        findViewById(R.id.btnSaveTrip).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_Save_trip).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //      Log.d("demo",UserAdapter.addedUsers.toString());
@@ -70,7 +67,7 @@ public class AddUsers extends AppCompatActivity {
     }
 
     public void initialize(){
-        recyclerView = findViewById(R.id.usersRecyclerView);
+        recyclerView = findViewById(R.id.user_recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(AddUsers.this);
 

@@ -7,16 +7,6 @@
 
     tools:context=".DashBoardActivity">
 
-    <!--    <View-->
-<!--        android:id="@+id/db_divider"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="1dp"-->
-
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        tools:layout_editor_absoluteY="741dp" />-->
-
     <TextView
         android:id="@+id/db_dashboard_title_text"
         android:layout_width="wrap_content"
@@ -30,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/usersRecyclerView"
+        android:id="@+id/user_recycler_view"
         android:layout_width="384dp"
         android:layout_height="523dp"
         android:layout_marginStart="5dp"
@@ -62,7 +52,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/AddTrip"
         app:layout_constraintEnd_toStartOf="@+id/db_add_trip_container"
-        app:layout_constraintTop_toBottomOf="@+id/usersRecyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/user_recycler_view" />
 
     <Button
         android:id="@+id/buttonViewProfile"

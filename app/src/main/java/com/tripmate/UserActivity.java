@@ -107,7 +107,7 @@ public class UserActivity extends AppCompatActivity {
         iv_TakePhoto = findViewById(R.id.add_edit_view_iv_photo_container);
         male = findViewById(R.id.add_edit_view_rb_male);
         female = findViewById(R.id.add_edit_view_rb_female);
-        rg = findViewById(R.id.add_edit_view_rg);
+        rg = findViewById(R.id.add_edit_view_radioGroup);
         mAuth = FirebaseAuth.getInstance();
     }
 

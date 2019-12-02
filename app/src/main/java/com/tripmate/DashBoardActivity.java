@@ -124,7 +124,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
     @SuppressLint("WrongViewCast")
     public void initialize(){
-        recyclerView = findViewById(R.id.usersRecyclerView);
+        recyclerView = findViewById(R.id.user_recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(DashBoardActivity.this);
 

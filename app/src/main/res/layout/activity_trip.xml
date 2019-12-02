@@ -21,10 +21,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tripImage" />
+        app:layout_constraintTop_toBottomOf="@+id/trip_Image" />
 
     <EditText
-        android:id="@+id/tripLat"
+        android:id="@+id/trip_Lat"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tripTitle" />
 
     <EditText
-        android:id="@+id/tripLng"
+        android:id="@+id/trip_Lng"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -46,11 +46,11 @@
         android:hint="@string/lngLabel"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tripLat"
+        app:layout_constraintStart_toEndOf="@+id/trip_Lat"
         app:layout_constraintTop_toBottomOf="@+id/tripTitle" />
 
     <Button
-        android:id="@+id/btnSaveTrip"
+        android:id="@+id/btn_Save_trip"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
@@ -58,14 +58,14 @@
         android:text="@string/saveTrip"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/deleteTrip"
+        app:layout_constraintEnd_toEndOf="@+id/delete_Trip"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/deleteTrip"
-        app:layout_constraintTop_toBottomOf="@+id/deleteTrip"
+        app:layout_constraintStart_toStartOf="@+id/delete_Trip"
+        app:layout_constraintTop_toBottomOf="@+id/delete_Trip"
         app:layout_constraintVertical_bias="0.175" />
 
     <Button
-        android:id="@+id/navigateChatRoom"
+        android:id="@+id/navigate_ChatRoom"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
@@ -77,7 +77,7 @@
         app:layout_constraintTop_toBottomOf="@+id/join" />
 
     <Button
-        android:id="@+id/inviteUsers"
+        android:id="@+id/discover_Users"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginStart="60dp"
@@ -85,7 +85,7 @@
         android:text="@string/discover"
         android:textAllCaps="false"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tripLat" />
+        app:layout_constraintTop_toBottomOf="@+id/trip_Lat" />
 
     <Button
         android:id="@+id/join"
@@ -93,23 +93,23 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:text="@string/join"
-        app:layout_constraintEnd_toEndOf="@+id/inviteUsers"
+        app:layout_constraintEnd_toEndOf="@+id/discover_Users"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/inviteUsers"
-        app:layout_constraintTop_toBottomOf="@+id/inviteUsers" />
+        app:layout_constraintStart_toStartOf="@+id/discover_Users"
+        app:layout_constraintTop_toBottomOf="@+id/discover_Users" />
 
     <Button
-        android:id="@+id/deleteTrip"
+        android:id="@+id/delete_Trip"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:text="Delete Trip"
-        app:layout_constraintEnd_toEndOf="@+id/navigateChatRoom"
-        app:layout_constraintStart_toStartOf="@+id/navigateChatRoom"
-        app:layout_constraintTop_toBottomOf="@+id/navigateChatRoom" />
+        app:layout_constraintEnd_toEndOf="@+id/navigate_ChatRoom"
+        app:layout_constraintStart_toStartOf="@+id/navigate_ChatRoom"
+        app:layout_constraintTop_toBottomOf="@+id/navigate_ChatRoom" />
 
     <ImageView
-        android:id="@+id/tripImage"
+        android:id="@+id/trip_Image"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="44dp"
@@ -127,7 +127,7 @@
         android:text="@string/selectimage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toEndOf="@+id/tripImage"
-        app:layout_constraintTop_toTopOf="@+id/tripImage" />
+        app:layout_constraintStart_toEndOf="@+id/trip_Image"
+        app:layout_constraintTop_toTopOf="@+id/trip_Image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

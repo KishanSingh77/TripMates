@@ -30,7 +30,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class SignIn extends AppCompatActivity {
     public static FirebaseAuth mAuth;
     public static GoogleSignInClient mGoogleSignInClient;
-    private static final int RC_SIGN_IN = 9001;
+    private static final int RC_SIGN_IN = 7777;
     private Button loginButton;
     private TextView username;
     private TextView password;
@@ -43,10 +43,10 @@ public class SignIn extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
 
         mAuth = FirebaseAuth.getInstance();
-        loginButton = findViewById(R.id.la_btn_login);
-        username = findViewById(R.id.la_et_username);
+        loginButton = findViewById(R.id.btn_login_activity_main);
+        username = findViewById(R.id.la_et_user_name);
         password = findViewById(R.id.la_et_password);
-        signup = findViewById(R.id.la_btn_signUp);
+        signup = findViewById(R.id.btn_signUp);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -166,14 +166,14 @@ public class SignIn extends AppCompatActivity {
                             finish();
                         } else {
                             loader.dismiss();
-                            Log.w("demo", "signInWithCredential:failure", task.getException());
+                            Log.w("demo", "sign in failure", task.getException());
                             Toast.makeText(SignIn.this, "Google sign in failed", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
             } catch (ApiException e) {
                 loader.dismiss();
-                Log.w("demo", "signInResult:failed code=" + e.toString());
+                Log.w("demo", "failed sign in" + e.toString());
                 Toast.makeText(SignIn.this, "Google sign in failed", Toast.LENGTH_SHORT).show();
             }
         } else {

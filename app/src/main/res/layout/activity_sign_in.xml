@@ -9,7 +9,7 @@
     tools:context=".SignIn">
 
     <Button
-        android:id="@+id/la_btn_login"
+        android:id="@+id/btn_login_activity_main"
         android:layout_width="150dp"
         android:layout_height="50dp"
 
@@ -40,16 +40,15 @@
         android:textColorHint="#4985AA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/la_et_username" />
+        app:layout_constraintTop_toBottomOf="@+id/la_et_user_name" />
 
     <EditText
-        android:id="@+id/la_et_username"
+        android:id="@+id/la_et_user_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="120dp"
         android:layout_marginEnd="20dp"
-
         android:ems="10"
         android:hint="@string/et_username_placeholder"
         android:inputType="textEmailAddress"
@@ -61,10 +60,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/la_iv_appLogo" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_app_Logo" />
 
     <ImageView
-        android:id="@+id/la_iv_appLogo"
+        android:id="@+id/iv_app_Logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -75,7 +74,7 @@
         app:srcCompat="@drawable/app_icon" />
 
     <TextView
-        android:id="@+id/la_btn_signUp"
+        android:id="@+id/btn_signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -84,7 +83,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/la_btn_login" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_login_activity_main" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
@@ -92,7 +91,7 @@
         android:layout_height="55dp"
 
         app:layout_constraintEnd_toEndOf="@+id/la_et_password"
-        app:layout_constraintTop_toTopOf="@+id/la_btn_login"
+        app:layout_constraintTop_toTopOf="@+id/btn_login_activity_main"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

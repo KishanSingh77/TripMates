@@ -39,7 +39,7 @@
             tools:srcCompat="@tools:sample/backgrounds/scenic[3]" />
 
         <TextView
-            android:id="@+id/r_message_item_body_text"
+            android:id="@+id/r_message_item_body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -91,7 +91,6 @@
             android:layout_marginStart="10dp"
             android:paddingTop="5sp"
             android:paddingBottom="5sp"
-
             android:textColor="@color/colorPrimaryDark"
             android:textSize="10sp"
             app:layout_constraintStart_toStartOf="parent"

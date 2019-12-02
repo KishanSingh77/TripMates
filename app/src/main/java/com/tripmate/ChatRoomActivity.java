@@ -137,7 +137,7 @@ public class ChatRoomActivity extends AppCompatActivity {
                 } else {
                     container1.setVisibility(View.VISIBLE);
                     container2.setVisibility(View.INVISIBLE);
-                    TextView messageText = (TextView) v.findViewById(R.id.r_message_item_body_text);
+                    TextView messageText = (TextView) v.findViewById(R.id.r_message_item_body);
                     ImageView chatImage = v.findViewById(R.id.r_message_item_photo);
                     if (model.getMessageType().equals("Text")) {
                         chatImage.setVisibility(View.INVISIBLE);

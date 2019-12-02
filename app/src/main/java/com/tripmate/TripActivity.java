@@ -53,10 +53,8 @@ public class TripActivity extends AppCompatActivity {
     String ADDUSER = "AddUser";
     FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
-    // ImageView iv_TakePhoto;
-    Button invite,chatRoom,joinBtn,delete;
-    // static SharedPreferences sp=null;
-    DocumentReference docRef = null;
+     Button invite,chatRoom,joinBtn,delete;
+     DocumentReference docRef = null;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     ArrayList<String> addedUserID = new ArrayList<>();
     static ArrayList<UserProfile> addedUsers = new ArrayList<>();
@@ -72,14 +70,14 @@ public class TripActivity extends AppCompatActivity {
 
         initialize();
 
-        findViewById(R.id.tripImage).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.trip_Image).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 takePhotoIntent();
             }
         });
 
-        findViewById(R.id.btnSaveTrip).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_Save_trip).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 uploadImage(getBitmapCamera());
@@ -94,8 +92,7 @@ public class TripActivity extends AppCompatActivity {
                 if(joinFlag){
                     tripRef.update("authUsersId", FieldValue.arrayUnion(currentUser.getUid()));
                     joinBtn.setText("Leave");
-                    //  Adapter.notifyDataSetChanged();
-                    joinFlag =false;
+                     joinFlag =false;
                     chat = true;
                 }
                 else{
@@ -107,7 +104,7 @@ public class TripActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.inviteUsers).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.discover_Users).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TripActivity.this,AddUsers.class);
@@ -116,7 +113,7 @@ public class TripActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.navigateChatRoom).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.navigate_ChatRoom).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(chat){
@@ -128,7 +125,7 @@ public class TripActivity extends AppCompatActivity {
                 }
             }
         });
-        findViewById(R.id.deleteTrip).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.delete_Trip).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
@@ -178,10 +175,6 @@ public class TripActivity extends AppCompatActivity {
             for (int i=0;i<users.size();i++){
                 addedUserID.add(users.get(i).getUserUID());
             }
-//            recyclerView.setLayoutManager(layoutManager);
-//            Adapter = new AddUserAdapter(users);
-//            recyclerView.setAdapter(Adapter);
-//            Adapter.notifyDataSetChanged();
 
         }
 
@@ -196,20 +189,16 @@ public class TripActivity extends AppCompatActivity {
 
     public void initialize(){
         title = findViewById(R.id.tripTitle);
-        lati = findViewById(R.id.tripLat);
-        longi = findViewById(R.id.tripLng);
-        delete = findViewById(R.id.deleteTrip);
+        lati = findViewById(R.id.trip_Lat);
+        longi = findViewById(R.id.trip_Lng);
+        delete = findViewById(R.id.delete_Trip);
         addedUsers = new ArrayList<>();
-        //  joinBtn.setVisibility(View.INVISIBLE);
-        tripImage = findViewById(R.id.tripImage);
-        invite = findViewById(R.id.inviteUsers);
-        chatRoom = findViewById(R.id.navigateChatRoom);
-//        recyclerView = findViewById(R.id.usersRecyclerView);
-//        recyclerView.setHasFixedSize(true);
+         tripImage = findViewById(R.id.trip_Image);
+        invite = findViewById(R.id.discover_Users);
+        chatRoom = findViewById(R.id.navigate_ChatRoom);
         layoutManager = new LinearLayoutManager(TripActivity.this);
         joinBtn = findViewById(R.id.join);
-       // setTitle = findViewById(R.id.tripTitleOnCover);
-        Intent i1 = getIntent();
+         Intent i1 = getIntent();
         tripID = i1.getStringExtra("TRIPID");
         if(tripID==null){
             joinBtn.setVisibility(View.INVISIBLE);
@@ -253,8 +242,7 @@ public class TripActivity extends AppCompatActivity {
                     trip.setLocationLongitude(Double.parseDouble(longi.getText().toString()));
                     db.collection("Trips").document(tripTitle).set(trip);
                     Intent intent = new Intent(TripActivity.this, DashBoardActivity.class);
-                    // intent.putExtra("TRIPID",tripTitle);
-                    startActivity(intent);
+                     startActivity(intent);
                     finish();
                 }
             }
@@ -272,15 +260,12 @@ public class TripActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             //   Trip.mGoogleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-            //        @Override
-                 //   public void onComplete(@NonNull Task<Void> task) {
+
                         FirebaseAuth.getInstance().signOut();
                         Intent intent = new Intent(TripActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
-                //    }
-            //    });
+
             }
         });
 
@@ -314,8 +299,7 @@ public class TripActivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Trip trip = documentSnapshot.toObject(Trip.class);
-               // setTitle.setText(trip.getTitle());
-                title.setText(trip.getTitle());
+                 title.setText(trip.getTitle());
                 lati.setText(String.valueOf(trip.getLocationLatitude()));
                 longi.setText(String.valueOf(trip.getLocationLongitude()));
                 Picasso.get().load(trip.getTripImageUrl()).into(tripImage);
@@ -333,9 +317,7 @@ public class TripActivity extends AppCompatActivity {
                                                 addedUsers.add(userProfile);
                                         }
                                     }
-                                    //recyclerView.setLayoutManager(layoutManager);
-//                                    Adapter = new AddUserAdapter(addedUsers);
-//                                    recyclerView.setAdapter(Adapter);
+
                                 }
                                 for (int i=0;i<authIDs.size();i++){
                                     if(authIDs.get(i).equals(currentUser.getUid())){
@@ -366,40 +348,5 @@ public class TripActivity extends AppCompatActivity {
 //                    chat = true;
 //            }
         });
-//        TripProfileActivity.db.collection("Trips").document(trip)
-//                .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                if (task.isSuccessful()) {
-//                    DocumentSnapshot document = task.getResult();
-//                    Log.d("demo",trip+"");
-//                    if (document.exists()) {
-//                        document.getData().get()
-//                        listOfAuthUsers = (ArrayList<String>) document.getData().get("authorizedUsers");
-//                        for (String id:listOfAuthUsers) {
-//                            if (id.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
-//                                chat = true;
-//                                break;
-//                            }
-//                        }
-//                        if(chat){
-//                            Intent i = new Intent(view.getContext(), ChatRoomActivity.class);
-//                            i.putExtra("TRIPID", t1.getId());
-//                            chat =false;
-//                            view.getContext().startActivity(i);
-//
-//                        }
-//                        else{
-//                            Toast.makeText(view.getContext(), "You are not added in trip yet!", Toast.LENGTH_SHORT).show();
-//                        }
-//                    } else {
-//                        Log.d("demo", "No such document");
-//                    }
-//                } else {
-//                    Log.d("demo", "get failed with ", task.getException());
-//                }
-//
-//            }
-//        });
     }
 }

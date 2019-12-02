@@ -8,7 +8,7 @@
     tools:context=".UserProfileViewFragment" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fl_cl_profile_view"
+        android:id="@+id/constraint_layout_profile_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

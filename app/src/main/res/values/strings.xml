@@ -1,7 +1,24 @@
 <resources>
-    <string name="app_name">Trip Organizer</string>
-
+    <string name="app_name">TripMates</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="tv_gender_name_label">GENDER</string>
+    <string name="db_dashboard_title">Your Trips</string>
+    <string name="cr_et_enter_message_placeholder">Enter messages</string>
+    <string name="signoutLabel">Log Out</string>
+    <string name="triptitleLabel">Title</string>
+    <string name="latLabel">Latitude</string>
+    <string name="lngLabel">Longitiude</string>
+    <string name="saveTrip">Save Trip</string>
+    <string name="AddLabel">Add</string>
+    <string name="first">First Name</string>
+    <string name="last">Last Name</string>
+    <string name="header">Edit and Verify your account</string>
+    <string name="AddTrip">Add trip</string>
+    <string name="viewProfile">View Profile</string>
+    <string name="discover">Discover User</string>
+    <string name="join">Join</string>
+    <string name="chat">Chat</string>
+    <string name="selectimage">Select Image</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="et_username_placeholder">Username</string>
     <string name="et_password_placeholder">Password</string>
@@ -11,22 +28,5 @@
     <string name="btn_submit_text">Submit</string>
     <string name="tv_first_name_label">First Name</string>
     <string name="tv_last_name_label">Last Name</string>
-    <string name="tv_gender_name_label">Gender</string>
-    <string name="db_dashboard_title">Your Trips</string>
-    <string name="cr_et_enter_message_placeholder">Enter message</string>
-    <string name="signoutLabel">Sign Out</string>
-    <string name="triptitleLabel">Title</string>
-    <string name="latLabel">Latitude</string>
-    <string name="lngLabel">Longitiude</string>
-    <string name="saveTrip">Save Trip</string>
-    <string name="AddLabel">Add</string>
-    <string name="first">First Name</string>
-    <string name="last">LastName</string>
-    <string name="header">Edit and Verify your account</string>
-    <string name="AddTrip">Add trip</string>
-    <string name="viewProfile">View Profile</string>
-    <string name="discover">Discover User</string>
-    <string name="join">Join</string>
-    <string name="chat">Chat</string>
-    <string name="selectimage">Select Image</string>
+
 </resources>
