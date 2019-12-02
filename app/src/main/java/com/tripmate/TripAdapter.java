@@ -65,8 +65,8 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripVIewHolder
         holder.title.setText(t1.getTitle());
         holder.location.setText("Latitude : " + t1.getLocationLatitude()+"  ,  "+"Longitude : "+t1.getLocationLongitude());
         Integer size = t1.getAuthUsersId().size();
-        holder.memberCount.setText(size.toString());
-        Picasso.get().load(t1.getTripImageUrl()).into(holder.tripImage);
+       // holder.memberCount.setText(size.toString());
+       // Picasso.get().load(t1.getTripImageUrl()).into(holder.tripImage);
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -142,7 +142,7 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.TripVIewHolder
             //joinLeaveBtn.setVisibility(View.INVISIBLE);
             title = itemView.findViewById(R.id.trip_item_title);
             location = itemView.findViewById(R.id.trip_item_location);
-            memberCount = itemView.findViewById(R.id.trip_item_memberCount);
+
             tripImage = itemView.findViewById(R.id.trip_item_photo);
 //            if(flag){
 //                joinLeaveBtn.setVisibility(View.VISIBLE);

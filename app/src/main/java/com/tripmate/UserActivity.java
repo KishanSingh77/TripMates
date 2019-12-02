@@ -61,7 +61,7 @@ public class UserActivity extends AppCompatActivity {
         userID = mAuth.getCurrentUser().getUid();
         docRef = db.collection("Users").document(userID);
         setProfile();
-        findViewById(R.id.add_edit_view_iv_photo).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.add_edit_view_iv_photo_container).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 takePhotoIntent();
@@ -104,7 +104,7 @@ public class UserActivity extends AppCompatActivity {
     public void initialize() {
         tvfirstName = findViewById(R.id.add_edit_view_tv_fName_value);
         tvlastName = findViewById(R.id.add_edit_view_tv_lName_value);
-        iv_TakePhoto = findViewById(R.id.add_edit_view_iv_photo);
+        iv_TakePhoto = findViewById(R.id.add_edit_view_iv_photo_container);
         male = findViewById(R.id.add_edit_view_rb_male);
         female = findViewById(R.id.add_edit_view_rb_female);
         rg = findViewById(R.id.add_edit_view_rg);

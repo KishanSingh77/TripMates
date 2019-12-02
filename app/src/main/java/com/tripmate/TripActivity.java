@@ -6,7 +6,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.gms.tasks.Continuation;
@@ -86,6 +85,7 @@ public class TripActivity extends AppCompatActivity {
                 uploadImage(getBitmapCamera());
             }
         });
+
 
         findViewById(R.id.join).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -178,10 +178,10 @@ public class TripActivity extends AppCompatActivity {
             for (int i=0;i<users.size();i++){
                 addedUserID.add(users.get(i).getUserUID());
             }
-            recyclerView.setLayoutManager(layoutManager);
-            Adapter = new AddUserAdapter(users);
-            recyclerView.setAdapter(Adapter);
-            Adapter.notifyDataSetChanged();
+//            recyclerView.setLayoutManager(layoutManager);
+//            Adapter = new AddUserAdapter(users);
+//            recyclerView.setAdapter(Adapter);
+//            Adapter.notifyDataSetChanged();
 
         }
 
@@ -204,11 +204,11 @@ public class TripActivity extends AppCompatActivity {
         tripImage = findViewById(R.id.tripImage);
         invite = findViewById(R.id.inviteUsers);
         chatRoom = findViewById(R.id.navigateChatRoom);
-        recyclerView = findViewById(R.id.usersRecyclerView);
-        recyclerView.setHasFixedSize(true);
+//        recyclerView = findViewById(R.id.usersRecyclerView);
+//        recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(TripActivity.this);
         joinBtn = findViewById(R.id.join);
-        setTitle = findViewById(R.id.tripTitleOnCover);
+       // setTitle = findViewById(R.id.tripTitleOnCover);
         Intent i1 = getIntent();
         tripID = i1.getStringExtra("TRIPID");
         if(tripID==null){
@@ -283,6 +283,8 @@ public class TripActivity extends AppCompatActivity {
                 });
             }
         });
+
+
         ImageView profileImage = action.getCustomView().findViewById(R.id.iv_profile_photo);
         Uri uri = FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl();
         if(uri == null){
@@ -291,7 +293,7 @@ public class TripActivity extends AppCompatActivity {
         else{
             Picasso.get().load(uri).into(profileImage);
         }
-        ConstraintLayout profileContainer = action.getCustomView().findViewById(R.id.my_profile);
+        ImageView profileContainer = action.getCustomView().findViewById(R.id.iv_profile_photo);
         profileContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -312,7 +314,7 @@ public class TripActivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Trip trip = documentSnapshot.toObject(Trip.class);
-                setTitle.setText(trip.getTitle());
+               // setTitle.setText(trip.getTitle());
                 title.setText(trip.getTitle());
                 lati.setText(String.valueOf(trip.getLocationLatitude()));
                 longi.setText(String.valueOf(trip.getLocationLongitude()));
@@ -331,9 +333,9 @@ public class TripActivity extends AppCompatActivity {
                                                 addedUsers.add(userProfile);
                                         }
                                     }
-                                    recyclerView.setLayoutManager(layoutManager);
-                                    Adapter = new AddUserAdapter(addedUsers);
-                                    recyclerView.setAdapter(Adapter);
+                                    //recyclerView.setLayoutManager(layoutManager);
+//                                    Adapter = new AddUserAdapter(addedUsers);
+//                                    recyclerView.setAdapter(Adapter);
                                 }
                                 for (int i=0;i<authIDs.size();i++){
                                     if(authIDs.get(i).equals(currentUser.getUid())){
@@ -342,7 +344,7 @@ public class TripActivity extends AppCompatActivity {
                                         joinFlag =false;
                                     }
                                 }
-                                Adapter.notifyDataSetChanged();
+                               // Adapter.notifyDataSetChanged();
                             }
                         });
 

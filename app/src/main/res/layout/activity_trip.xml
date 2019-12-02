@@ -4,32 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blue_themed_gradient"
+
     tools:context=".TripActivity">
 
 
-    <ImageView
-        android:id="@+id/tripImage"
-        android:layout_width="0dp"
-        android:layout_height="220dp"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/app_logo"
-        tools:srcCompat="@tools:sample/backgrounds/scenic[14]" />
-
     <EditText
         android:id="@+id/tripTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="4dp"
         android:ems="10"
         android:hint="@string/triptitleLabel"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tripImage" />
 
@@ -61,90 +51,83 @@
 
     <Button
         android:id="@+id/btnSaveTrip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/saveTrip"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/usersRecyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnSaveTrip"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/invitedUsersInfo" />
-
-    <TextView
-        android:id="@+id/tripTitleOnCover"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="TextView"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tripImage"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/deleteTrip"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/deleteTrip"
+        app:layout_constraintTop_toBottomOf="@+id/deleteTrip"
+        app:layout_constraintVertical_bias="0.175" />
 
     <Button
         android:id="@+id/navigateChatRoom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="15dp"
-        android:text="Chat Room"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/chat"
         android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tripLng" />
+        app:layout_constraintEnd_toEndOf="@+id/join"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="@+id/join"
+        app:layout_constraintTop_toBottomOf="@+id/join" />
 
     <Button
         android:id="@+id/inviteUsers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="4dp"
-        android:text="Invite Users"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/discover"
         android:textAllCaps="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tripLat" />
 
-    <TextView
-        android:id="@+id/invitedUsersInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="4dp"
-        android:text="List of users invited :"
-        app:layout_constraintStart_toStartOf="parent"
+    <Button
+        android:id="@+id/join"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/join"
+        app:layout_constraintEnd_toEndOf="@+id/inviteUsers"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/inviteUsers"
         app:layout_constraintTop_toBottomOf="@+id/inviteUsers" />
 
     <Button
-        android:id="@+id/join"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Join"
-        app:layout_constraintEnd_toStartOf="@+id/navigateChatRoom"
-        app:layout_constraintStart_toEndOf="@+id/inviteUsers"
-        app:layout_constraintTop_toBottomOf="@+id/tripLat" />
-
-    <Button
         android:id="@+id/deleteTrip"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:text="Delete Trip"
+        app:layout_constraintEnd_toEndOf="@+id/navigateChatRoom"
+        app:layout_constraintStart_toStartOf="@+id/navigateChatRoom"
+        app:layout_constraintTop_toBottomOf="@+id/navigateChatRoom" />
+
+    <ImageView
+        android:id="@+id/tripImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/app_icon" />
+
+    <TextView
+        android:id="@+id/textViewImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="Delete Trip"
+        android:layout_marginTop="100dp"
+        android:text="@string/selectimage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btnSaveTrip"
-        app:layout_constraintTop_toBottomOf="@+id/usersRecyclerView" />
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toEndOf="@+id/tripImage"
+        app:layout_constraintTop_toTopOf="@+id/tripImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

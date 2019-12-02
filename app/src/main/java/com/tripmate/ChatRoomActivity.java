@@ -9,7 +9,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,7 +25,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -279,7 +277,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         else{
             Picasso.get().load(uri).into(profileImage);
         }
-        ConstraintLayout profileContainer = action.getCustomView().findViewById(R.id.my_profile);
+        ImageView profileContainer = action.getCustomView().findViewById(R.id.iv_profile_photo);
         profileContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -49,7 +49,13 @@ public class DashBoardActivity extends AppCompatActivity {
         setCustomActionBar();
         initialize();
 
-
+        findViewById(R.id.buttonViewProfile).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DashBoardActivity.this, UserActivity.class);
+                startActivity(intent);
+            }
+        });
         findViewById(R.id.db_add_trip_container).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,7 +107,7 @@ public class DashBoardActivity extends AppCompatActivity {
         else{
             Picasso.get().load(uri).into(profileImage);
         }
-        ConstraintLayout profileContainer = action.getCustomView().findViewById(R.id.my_profile);
+        ImageView  profileContainer= action.getCustomView().findViewById(R.id.iv_profile_photo);
         profileContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -136,6 +142,7 @@ public class DashBoardActivity extends AppCompatActivity {
                             if(flag == 0) {
                                 recyclerView.setLayoutManager(layoutManager);
                                 mAdapter = new TripAdapter(tripList,joinTrip);
+                                recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
                                 recyclerView.setAdapter(mAdapter);
                             }
                             mAdapter.notifyDataSetChanged();
