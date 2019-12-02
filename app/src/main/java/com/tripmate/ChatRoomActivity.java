@@ -258,15 +258,12 @@ public class ChatRoomActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SignIn.mGoogleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        FirebaseAuth.getInstance().signOut();
-                        Intent intent = new Intent(ChatRoomActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                });
+
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(ChatRoomActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+
             }
         });
         ImageView profileImage = action.getCustomView().findViewById(R.id.iv_profile_photo);

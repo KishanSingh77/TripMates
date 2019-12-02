@@ -88,15 +88,15 @@ public class DashBoardActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SignIn.mGoogleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        FirebaseAuth.getInstance().signOut();
-                        Intent intent = new Intent(DashBoardActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                });
+                //   Trip.mGoogleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                //        @Override
+                //   public void onComplete(@NonNull Task<Void> task) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(DashBoardActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+                //    }
+                //    });
             }
         });
         ImageView profileImage = action.getCustomView().findViewById(R.id.iv_profile_photo);

@@ -272,15 +272,15 @@ public class TripActivity extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SignIn.mGoogleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
+             //   Trip.mGoogleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+            //        @Override
+                 //   public void onComplete(@NonNull Task<Void> task) {
                         FirebaseAuth.getInstance().signOut();
                         Intent intent = new Intent(TripActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
-                    }
-                });
+                //    }
+            //    });
             }
         });
 
