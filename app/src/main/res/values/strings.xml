@@ -29,5 +29,6 @@
     <string name="tv_first_name_label">First Name</string>
     <string name="tv_last_name_label">Last Name</string>
     <string name="choosePic">Click photo icon</string>
+    <string name="delete">Delete</string>
 
 </resources>

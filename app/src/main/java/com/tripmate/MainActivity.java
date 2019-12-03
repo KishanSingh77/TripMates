@@ -11,9 +11,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-
-
-//Starting point of the application, this will also be the login activity
+//Group 15
+//Amit S K
+//Kishan Singh
 public class MainActivity extends AppCompatActivity {
 
     @Override

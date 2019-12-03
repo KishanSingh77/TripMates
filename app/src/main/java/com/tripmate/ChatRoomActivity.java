@@ -26,12 +26,14 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -52,12 +54,14 @@ public class ChatRoomActivity extends AppCompatActivity {
     private ProgressDialog loader;
     private ListView listOfMessages;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
         setCustomActionBar();
         showLoader(false);
+
         Intent intent = getIntent();
         if (intent != null && intent.getExtras() != null) {
             tripDB = intent.getStringExtra("TRIPID");
@@ -106,16 +110,17 @@ public class ChatRoomActivity extends AppCompatActivity {
     private void initializeList(){
         listOfMessages = (ListView) findViewById(R.id.cr_rv_messages_list);
         FirebaseListOptions<ChatRoom> options = new FirebaseListOptions.Builder<ChatRoom>()
-                .setLayout(R.layout.messageItem)//Note: The guide doesn't mention this method, without it an exception is thrown that the layout has to be set.
+                .setLayout(R.layout.message_list_item_row)//Note: The guide doesn't mention this method, without it an exception is thrown that the layout has to be set.
                 .setLifecycleOwner(this)
                 .setQuery(database.getReference(tripDB), ChatRoom.class)
                 .build();
         adapter = new FirebaseListAdapter<ChatRoom>(options) {
             @Override
-            protected void populateView(@NonNull View v, @NonNull ChatRoom model, int position) {
+            protected void populateView(@NonNull View v, @NonNull ChatRoom model, final int position) {
                 String temp = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 ConstraintLayout container1 = v.findViewById(R.id.r_message_item_container);
-                ConstraintLayout container2 = v.findViewById(R.id.s_message_item_container);
+                final ConstraintLayout container2 = v.findViewById(R.id.s_message_item_container);
+                ImageView deleteMessage_button=v.findViewById(R.id.imageView_delete);
                 if (model.getuId().equals(temp)) {
                     container1.setVisibility(View.INVISIBLE);
                     container2.setVisibility(View.VISIBLE);
@@ -133,7 +138,8 @@ public class ChatRoomActivity extends AppCompatActivity {
                     TextView status = v.findViewById(R.id.s_message_item_status);
                     messageUser.setText(model.getUserId());
                     messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)", model.getTime()));
-                    status.setText("Sent");
+                    status.setText("✅");
+                    status.setBackgroundColor(Color.BLUE);
                 } else {
                     container1.setVisibility(View.VISIBLE);
                     container2.setVisibility(View.INVISIBLE);
@@ -152,7 +158,19 @@ public class ChatRoomActivity extends AppCompatActivity {
                     messageUser.setText(model.getUserId());
                     messageTime.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)", model.getTime()));
                     status.setText("Received");
+
                 }
+                deleteMessage_button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log.d("demodelete", "in delete");
+                        view.setVisibility(View.INVISIBLE);
+                        container2.setVisibility(View.INVISIBLE);
+
+
+                    }
+                });
+
             }
         };
         listOfMessages.setAdapter(adapter);
@@ -244,6 +262,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         }
         tripChat.push()
                 .setValue(chat);
+
         listOfMessages.smoothScrollToPosition(adapter.getCount());
     }
 

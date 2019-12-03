@@ -64,7 +64,6 @@
             android:layout_marginStart="10dp"
             android:layout_marginBottom="5dp"
             android:paddingTop="10sp"
-            android:text="Dummy"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="10sp"
             android:visibility="visible"
@@ -78,9 +77,10 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="5dp"
             android:paddingTop="5sp"
-            android:text="Sent"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="10sp"
+            android:text="✅"
+            android:textColor="#0A830C"
+            android:textSize="12sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -106,6 +106,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
          app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView_delete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintEnd_toStartOf="@+id/s_message_item_status"
+            app:layout_constraintHorizontal_bias="0.946"
+            app:layout_constraintStart_toEndOf="@+id/s_message_item_datetime"
+            app:layout_constraintTop_toTopOf="@+id/s_message_item_status"
+            app:srcCompat="@drawable/delete" />
 
         <ImageView
             android:id="@+id/s_message_item_photo"
@@ -154,7 +164,6 @@
             android:layout_marginStart="10dp"
             android:layout_marginBottom="5dp"
             android:paddingTop="10sp"
-            android:text="Dummy"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="10sp"
             android:visibility="visible"
@@ -168,9 +177,10 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="5dp"
             android:paddingTop="5sp"
-            android:text="Sent"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="10sp"
+            android:text="✅"
+            android:textColor="#419E06"
+            android:textSize="12sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -181,7 +191,6 @@
             android:layout_marginEnd="10dp"
             android:paddingTop="5sp"
             android:paddingBottom="5sp"
-            android:text="Kishan"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="parent"
